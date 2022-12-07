@@ -1,0 +1,22 @@
+
+GET http://127.0.0.1:3000/helloWorld
+
+###
+
+GET http://127.0.0.1:3000/lambda1
+
+###
+
+GET http://127.0.0.1:3000/lambda2
+
+### Sample curl
+curl -X POST -F channel="C04CF479D3M" -F text="Reminder: we've got a softball game tonight" <api-endpoint> -H "Authorization: Bearer <api-key>"
+
+### Sample POST
+POST <api-endpoint>
+Content-type: application/json
+Authorization: Bearer <api-key>
+{
+  "channel": "C04CF479D3M",
+  "text": "Hello world :tada:"
+}

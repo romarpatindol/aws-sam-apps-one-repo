@@ -1,0 +1,49 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  AWS SAM Template
+
+Resources:
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: stage
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: helloWorld/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Events:
+        ProxyApiRoot:
+          Type: Api 
+          Properties:
+            RestApiId: !Ref ApiGatewayApi
+            Path: /helloWorld
+            Method: ANY
+  LambdaFunction1:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: lambda1/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Events:
+        ProxyApiRoot:
+          Type: Api 
+          Properties:
+            RestApiId: !Ref ApiGatewayApi
+            Path: /lambda1
+            Method: ANY
+  LambdaFunction2:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: lambda2/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Events:
+        ProxyApiRoot:
+          Type: Api 
+          Properties:
+            RestApiId: !Ref ApiGatewayApi
+            Path: /lambda2
+            Method: ANY
