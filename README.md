@@ -48,7 +48,7 @@ Prerequisites - Needed to be installed on local machine:
 Clone the project
 
 ```bash
-  git clone https://gitlab.com/aws-sandbox3/sam-app-one-repo.git
+  git clone https://github.com/romarpatindol/aws-sam-apps-one-repo.git
 ```
 
 Go to the project directory
